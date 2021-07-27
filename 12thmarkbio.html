@@ -82,7 +82,7 @@
 	border-radius: 6px;
 	-webkit-border-radius:6px;
 	-moz-border-radius:6px;
-	border: 2px solid #fff;
+	/* border: 2px solid #fff; */
 	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
 	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
 	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
@@ -145,6 +145,28 @@
 .enter {
   font-size: 10px;
 }
+
+input[type="number"] {
+  border: 0.125em solid hsl(0, 0%, 100%);
+  outline: none;
+}
+
+input:placeholder-shown {
+  border-color: rgb(255, 255, 255);
+}
+/* Show red borders when filled, but invalid */
+input:not(:placeholder-shown) {
+  border-color: hsl(0, 76%, 50%);
+}
+
+/* Show green borders when valid */
+input:valid {
+  border-color: hsl(120, 76%, 50%);
+}
+
+input:disabled {
+  border-color: hsl(0, 0%, 100%);
+}
 </style>
 	<script>
     // disable right click
@@ -183,31 +205,31 @@
     <div class="section" id="standard10a"><span>1</span>10th Standard<br><div class="enter">(Enter all subjects marks out of 100)</div></div>
     <div class="inner-wrap" id="standard10">
         <label for="tam">Tamil : </label>
-        <input type="number" id="tam" name="tam" min="0" max="100" required><br><br>
+        <input type="number" id="tam" name="tam" min="0" max="100" placeholder=" " required><br><br>
         <label for="eng">English : </label>
-        <input type="number" id="eng" name="eng" min="0" max="100" required><br><br>
+        <input type="number" id="eng" name="eng" min="0" max="100" placeholder=" " required><br><br>
         <label for="mat">Mathematics : </label>
-        <input type="number" id="mat" name="mat" min="0" max="100" required><br><br>
+        <input type="number" id="mat" name="mat" min="0" max="100" placeholder=" " required><br><br>
         <label for="sci">Science : </label>
-        <input type="number" id="sci" name="sci" min="0" max="100" required><br><br>
+        <input type="number" id="sci" name="sci" min="0" max="100" placeholder=" " required><br><br>
         <label for="soc">Social Science : </label>
-        <input type="number" id="soc" name="soc" min="0" max="100" required><br><br>
+        <input type="number" id="soc" name="soc" min="0" max="100" placeholder=" " required><br><br>
     </div>
 
     <div class="section" id="standard11a"><span>2</span>11th Standard<br><div class="enter">(Enter all subjects marks out of 100)</div></div>
     <div class="inner-wrap" id="standard11">
         <label for="tam11">Tamil : </label>
-        <input type="number" id="tam11" name="tam11" min="0" max="100" required><br><br>
+        <input type="number" id="tam11" name="tam11" min="0" max="100" placeholder=" " required><br><br>
         <label for="eng11">English : </label>
-        <input type="number" id="eng11" name="eng11" min="0" max="100" required><br><br>
+        <input type="number" id="eng11" name="eng11" min="0" max="100" placeholder=" " required><br><br>
         <label for="mat11">Mathematics : </label>
-        <input type="number" id="mat11" name="mat11" min="0" max="100" required><br><br>
+        <input type="number" id="mat11" name="mat11" min="0" max="100" placeholder=" " required><br><br>
         <label for="phy11">Physics : </label>
-        <input type="number" id="phy11" name="phy11" min="0" max="100" required><br><br>
+        <input type="number" id="phy11" name="phy11" min="0" max="100" placeholder=" " required><br><br>
         <label for="chem11">Chemistry : </label>
-        <input type="number" id="chem11" name="chem11" min="0" max="100" required><br><br>
+        <input type="number" id="chem11" name="chem11" min="0" max="100" placeholder=" " required><br><br>
         <label for="bio11">Biology : </label>
-        <input type="number" id="bio11" name="bio11" min="0" max="100" required><br><br>
+        <input type="number" id="bio11" name="bio11" min="0" max="100" placeholder=" " required><br><br>
     </div>
     
     <div class="section" id="standard12a"><span>1</span>12th Standard</div>
@@ -226,6 +248,7 @@
         <input type="text" id="bio12" disabled><br><br>
         <h2 id="total"></h2>
     	<p id="cutoff"></p>
+      <p id="cutoffagri"></p>
     </div>
     
     <div class="button-section" id="submitbtn">
@@ -343,6 +366,8 @@
     sslc = sslc / 3;
     sslc = (sslc / 100) * 50;
 
+    sslc = +Math.ceil(sslc * 100) / 100;
+
     tam11 = tam11 - 10;
     eng11 = eng11 - 10;
     mat11 = mat11 - 10;
@@ -350,22 +375,28 @@
     chem11 = chem11 - 30;
     bio11 = bio11 - 30;
 
+    var tam11th = ((tam11 / 90) * 20);
+    var eng11th = ((eng11 / 90) * 20);
+    var mat11th = ((mat11 / 90) * 20);
+    var phy11th = ((phy11 / 70) * 20);
+    var chem11th = ((chem11 / 70) * 20);
+    var bio11th = ((bio11 / 70) * 20);
+
+    tam11th = +tam11th.toFixed(2);
+    eng11th = +eng11th.toFixed(2);
+    mat11th = +mat11th.toFixed(2);
+    phy11th = +phy11th.toFixed(2);
+    chem11th = +chem11th.toFixed(2);
+    bio11th = +bio11th.toFixed(2);
+
     //sum of each hsc subjects by sslc average
-    var tam100 = ((tam11 / 90) * 20) + sslc + 30;
-    var eng100 = ((eng11 / 90) * 20) + sslc + 30;
-    var mat100 = ((mat11 / 90) * 20) + sslc + 30;
-    var phy100 = ((phy11 / 70) * 20) + sslc + 30;
-    var chem100 = ((chem11 / 70) * 20) + sslc + 30;
-    var bio100 = ((bio11 / 70) * 20) + sslc + 30;
-
-    //Converting 60% of marks to 100% marks
-    // var tam100 = (tam60/60) * 100;
-    // var eng100 = (eng60/60) * 100;
-    // var mat100 = (mat60/60) * 100;
-    // var phy100 = (phy60/60) * 100;
-    // var chem100 = (chem60/60) * 100;
-    // var bio100 = (bio60/60) * 100;
-
+    var tam100 = tam11th + sslc + 30;
+    var eng100 = eng11th + sslc + 30;
+    var mat100 = mat11th + sslc + 30;
+    var phy100 = phy11th + sslc + 30;
+    var chem100 = chem11th + sslc + 30;
+    var bio100 = bio11th + sslc + 30;
+		
     //limiting to 2 decimal values
     tam100 = +tam100.toFixed(2);
     eng100 = +eng100.toFixed(2);
@@ -373,17 +404,19 @@
     phy100 = +phy100.toFixed(2);
     chem100 = +chem100.toFixed(2);
     bio100 = +bio100.toFixed(2);
-		
+
     //Total marks in 12th standard
     var total = tam100 + eng100 + mat100 + phy100 + chem100 + bio100;
 
     //Engineering cut-off mark calculation
     var cutoff = mat100 + (phy100/2) + (chem100/2);
-		
-    //limiting to 2 decimal values
+
+    //Agri cut-off mark calculation
+    var cutoffagri = (mat100/2) + (phy100/2) + (chem100/2) + (bio100/2);
+
     total = total.toFixed(2);
     cutoff = cutoff.toFixed(2);
-
+    cutoffagri = cutoffagri.toFixed(2);
 
     document.getElementById("standard10a").style.display = "none";
     document.getElementById("standard10").style.display = "none";
@@ -406,6 +439,8 @@
     document.getElementById("total").innerHTML = "Total = " + total;
 
     document.getElementById("cutoff").innerHTML = "Engineering cut-off mark = " + cutoff;
+
+    document.getElementById("cutoffagri").innerHTML = "Agri cut-off mark = " + cutoffagri;
     
     window.scrollTo({top: 0, behavior: 'smooth'});
     }

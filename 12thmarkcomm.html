@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12th Mark Calculator</title>
+	<noscript><h3> You must have JavaScript enabled in order to use this order form. Please 
+      enable JavaScript and then reload this page in order to continue. </h3> 
+      <meta HTTP-EQUIV="refresh" content=0;url="javascriptNotEnabled.php"></noscript>
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<style type="text/css">
+
+.form-style-10{
+	width:450px;
+	padding:30px;
+	margin:40px auto;
+	background: #FFF;
+	border-radius: 10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+
+@media only screen and (max-width: 600px) {
+  .form-style-10 {
+    width: 300px;
+    margin: 4px auto;
+  }
+}
+
+.form-style-10 .inner-wrap{
+	padding: 30px;
+	background: #F8F8F8;
+	border-radius: 6px;
+	margin-bottom: 15px;
+}
+.form-style-10 h1{
+	text-align: center;
+	background: #2A88AD;
+	padding: 20px 0px 15px 0px;
+	margin: -30px -30px 30px -30px;
+	border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 30px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+}
+.form-style-10 h1 > span{
+	display: block;
+	margin-top: 2px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-10 label{
+	display: block;
+	font: 13px Arial, Helvetica, sans-serif;
+	color: #888;
+	margin-bottom: 15px;
+}
+.form-style-10 input[type="text"],
+.form-style-10 input[type="date"],
+.form-style-10 input[type="datetime"],
+.form-style-10 input[type="email"],
+.form-style-10 input[type="number"],
+.form-style-10 input[type="search"],
+.form-style-10 input[type="time"],
+.form-style-10 input[type="url"],
+.form-style-10 input[type="password"],
+.form-style-10 textarea,
+.form-style-10 select {
+	display: block;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 8px;
+	border-radius: 6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border: 2px solid #fff;
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+.form-style-10 .section{
+	font: normal 20px 'Bitter', serif;
+	color: #2A88AD;
+	margin-bottom: 5px;
+}
+.form-style-10 .section span {
+	background: #2A88AD;
+	padding: 5px 10px 5px 10px;
+	position: absolute;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border: 4px solid #fff;
+	font-size: 14px;
+	margin-left: -45px;
+	color: #fff;
+	margin-top: -3px;
+}
+.form-style-10 input[type="button"], 
+.form-style-10 input[type="submit"]{
+	background: #2A88AD;
+	padding: 8px 20px 8px 20px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 30px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+	font-size: 15px;
+}
+.form-style-10 input[type="button"]:hover, 
+.form-style-10 input[type="submit"]:hover{
+	background: #2A6881;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+.form-style-10 .privacy-policy{
+	float: right;
+	width: 250px;
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #4D4D4D;
+	margin-top: 10px;
+	text-align: right;
+}
+
+#standard12a, #standard12, #reloadbtn {
+	display: none;
+}
+.enter {
+  font-size: 10px;
+}
+</style>
+	<script>
+    // disable right click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+ 
+    document.onkeydown = function (e) {
+ 
+        // disable F12 key
+        if(e.keyCode == 123) {
+            return false;
+        }
+ 
+        // disable I key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+            return false;
+        }
+ 
+        // disable J key
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            return false;
+        }
+ 
+        // disable U key
+        if(e.ctrlKey && e.keyCode == 85) {
+            return false;
+        }
+    }
+ 
+</script>
+</head>
+<body>
+
+<div class="form-style-10">
+<h1>12th Std Mark Calculator<br><span>Computer Applications</span></h1>
+<form onsubmit="myFunction();  return false;" id="form12">
+    <div class="section" id="standard10a"><span>1</span>10th Standard<br><div class="enter">(Enter all subjects marks out of 100)</div></div>
+    <div class="inner-wrap" id="standard10">
+        <label for="tam">Tamil : </label>
+        <input type="number" id="tam" name="tam" min="0" max="100" required><br><br>
+        <label for="eng">English : </label>
+        <input type="number" id="eng" name="eng" min="0" max="100" required><br><br>
+        <label for="mat">Mathematics : </label>
+        <input type="number" id="mat" name="mat" min="0" max="100" required><br><br>
+        <label for="sci">Science : </label>
+        <input type="number" id="sci" name="sci" min="0" max="100" required><br><br>
+        <label for="soc">Social Science : </label>
+        <input type="number" id="soc" name="soc" min="0" max="100" required><br><br>
+    </div>
+
+    <div class="section" id="standard11a"><span>2</span>11th Standard<br><div class="enter">(Enter all subjects marks out of 100)</div></div>
+    <div class="inner-wrap" id="standard11">
+        <label for="tam11">Tamil : </label>
+        <input type="number" id="tam11" name="tam11" min="0" max="100" required><br><br>
+        <label for="eng11">English : </label>
+        <input type="number" id="eng11" name="eng11" min="0" max="100" required><br><br>
+        <label for="mat11">Economics : </label>
+        <input type="number" id="mat11" name="mat11" min="0" max="100" required><br><br>
+        <label for="phy11">Commerce : </label>
+        <input type="number" id="phy11" name="phy11" min="0" max="100" required><br><br>
+        <label for="chem11">Accountancy : </label>
+        <input type="number" id="chem11" name="chem11" min="0" max="100" required><br><br>
+        <label for="bio11">Computer Applications : </label>
+        <input type="number" id="bio11" name="bio11" min="0" max="100" required><br><br>
+    </div>
+    
+    <div class="section" id="standard12a"><span>1</span>12th Standard</div>
+    <div class="inner-wrap" id="standard12">
+        <label for="tam12">Tamil : </label>
+        <input type="text" id="tam12" disabled><br><br>
+        <label for="eng12">English : </label>
+        <input type="text" id="eng12" disabled><br><br>
+        <label for="mat12">Economics : </label>
+        <input type="text" id="mat12" disabled><br><br>
+        <label for="phy12">Commerce : </label>
+        <input type="text" id="phy12" disabled><br><br>
+        <label for="chem12">Accountancy : </label>
+        <input type="text" id="chem12" disabled><br><br>
+        <label for="bio12">Computer Applications : </label>
+        <input type="text" id="bio12" disabled><br><br>
+        <h2 id="total"></h2>
+    </div>
+    
+    <div class="button-section" id="submitbtn">
+     <input type="submit" value="Get Marks!" name="Sign Up" />
+    </div>
+
+    <div class="button-section" id="reloadbtn">
+      <input type="button" value="Back" name="Sign Up" onclick="location.reload(); window.scrollTo(0, 0);"/>
+     </div>
+    
+</form>
+<p>Note : <br><br>The above mark is calculated by</p>
+<ul>
+    <li>10th : 50% from average of highest scored 3 subjects</li>
+    <li>11th : 20% from each subjects theory (excluded practicals)</li>
+    <li>12th : 30% from practicals (30% fully added in the above calculator)</li>
+</ul> 
+
+    <p style="text-align:center;">***This is not official mark***</p>
+    <p style="text-align:center; margin-top: 30px;">This site was created by <a href="https://www.facebook.com/gowdhammurugesh24/" target="_blank">Gowdham</a></p>
+    <p style="text-align:center;">email : gowdhammurugesh24@gmail.com</p>
+</div>
+
+  <script>
+	function myFunction() {
+
+  	//getting 10th marks
+  	var tam = parseInt(document.getElementById("tam").value);
+    var eng = parseInt(document.getElementById("eng").value);
+    var mat = parseInt(document.getElementById("mat").value);
+    var sci = parseInt(document.getElementById("sci").value);
+    var soc = parseInt(document.getElementById("soc").value);
+  
+    //getting 11th marks
+    var tam11 = parseInt(document.getElementById("tam11").value);
+    var eng11 = parseInt(document.getElementById("eng11").value);
+    var mat11 = parseInt(document.getElementById("mat11").value);
+    var phy11 = parseInt(document.getElementById("phy11").value);
+    var chem11 = parseInt(document.getElementById("chem11").value);
+    var bio11 = parseInt(document.getElementById("bio11").value);
+
+    //declaring variables to find 10th std highest three marks
+    var largest;
+    var largest1;
+    var largest2;
+
+    //1st highest mark
+    if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
+      largest = tam;
+      tam = 0;
+    }
+    else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
+      largest = eng;
+      eng = 0;
+    }
+    else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
+      largest = mat;
+      mat = 0;
+    }
+    else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
+      largest = sci;
+      sci = 0;
+    }
+    else {
+      largest = soc;
+      soc = 0;
+    }
+
+    //2nd highest mark
+    if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
+      largest1 = tam;
+      tam = 0;
+    }
+    else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
+      largest1 = eng;
+      eng = 0;
+    }
+    else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
+      largest1 = mat;
+      mat = 0;
+    }
+    else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
+      largest1 = sci;
+      sci = 0;
+    }
+    else {
+      largest1 = soc;
+      soc = 0;
+    }
+
+    //3rd highest mark
+    if ((tam >= eng) && (tam >= mat) && (tam >= sci) && (tam >= soc)) {
+      largest2 = tam;
+      tam = 0;
+    }
+    else if ((eng >= tam) && (eng >= mat) && (eng >= sci) && (eng >= soc)) {
+      largest2 = eng;
+      eng = 0;
+    }
+    else if ((mat >= eng) && (mat >= tam) && (mat >= sci) && (mat >= soc)) {
+      largest2 = mat;
+      mat = 0;
+    }
+    else if ((sci >= eng) && (sci >= mat) && (sci >= tam) && (sci >= soc)) {
+      largest2 = sci;
+      sci = 0;
+    }
+    else {
+      largest2 = soc;
+      soc = 0;
+    }
+
+    //30% from 3 highest scored subjects from 10th
+    var sslc = largest + largest1 + largest2;
+    sslc = sslc / 3;
+    sslc = (sslc / 100) * 50;
+
+    tam11 = tam11 - 10;
+    eng11 = eng11 - 10;
+    mat11 = mat11 - 10;
+    phy11 = phy11 - 10;
+    chem11 = chem11 - 10;
+    bio11 = bio11 - 30;
+
+    //sum of each hsc subjects by sslc average
+    var tam100 = ((tam11 / 90) * 20) + sslc + 30;
+    var eng100 = ((eng11 / 90) * 20) + sslc + 30;
+    var mat100 = ((mat11 / 90) * 20) + sslc + 30;
+    var phy100 = ((phy11 / 90) * 20) + sslc + 30;
+    var chem100 = ((chem11 / 90) * 20) + sslc + 30;
+    var bio100 = ((bio11 / 70) * 20) + sslc + 30;
+
+    //Converting 60% of marks to 100% marks
+    // var tam100 = (tam60/60) * 100;
+    // var eng100 = (eng60/60) * 100;
+    // var mat100 = (mat60/60) * 100;
+    // var phy100 = (phy60/60) * 100;
+    // var chem100 = (chem60/60) * 100;
+    // var bio100 = (bio60/60) * 100;
+		
+    //limiting to 2 decimal values
+    tam100 = +tam100.toFixed(2);
+    eng100 = +eng100.toFixed(2);
+    mat100 = +mat100.toFixed(2);
+    phy100 = +phy100.toFixed(2);
+    chem100 = +chem100.toFixed(2);
+    bio100 = +bio100.toFixed(2);
+
+    //Total marks in 12th standard
+    var total = tam100 + eng100 + mat100 + phy100 + chem100 + bio100;
+
+    //Engineering cut-off mark calculation
+    var cutoff = mat100 + (phy100/2) + (chem100/2);
+		
+    //limiting to 2 decimal values
+    total = total.toFixed(2);
+    cutoff = cutoff.toFixed(2);
+
+
+    document.getElementById("standard10a").style.display = "none";
+    document.getElementById("standard10").style.display = "none";
+    document.getElementById("standard11a").style.display = "none";
+    document.getElementById("standard11").style.display = "none";
+    document.getElementById("submitbtn").style.display = "none";
+    
+    document.getElementById("standard12a").style.display = "block";
+    document.getElementById("standard12").style.display = "block";
+    document.getElementById("reloadbtn").style.display = "block";
+    
+    document.getElementById("tam12").setAttribute('value', tam100);
+    document.getElementById("eng12").setAttribute('value', eng100);
+    document.getElementById("mat12").setAttribute('value', mat100);
+    document.getElementById("phy12").setAttribute('value', phy100);
+    document.getElementById("chem12").setAttribute('value', chem100);
+    document.getElementById("bio12").setAttribute('value', bio100);
+    
+
+    document.getElementById("total").innerHTML = "Total = " + total;
+    
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    
+  </script>
+
+</body>
+</html>

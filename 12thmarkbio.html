@@ -248,6 +248,7 @@ input:disabled {
         <input type="text" id="bio12" disabled><br><br>
         <h2 id="total"></h2>
     	<p id="cutoff"></p>
+      <p id="cutoffmed"></p>
       <p id="cutoffagri"></p>
     </div>
     
@@ -414,6 +415,9 @@ input:disabled {
     //Agri cut-off mark calculation
     var cutoffagri = (mat100/2) + (phy100/2) + (chem100/2) + (bio100/2);
 
+    //Medical cut-off mark calculation
+    var cutoffmed = bio100 + (phy100/2) + (chem100/2);
+
     total = total.toFixed(2);
     cutoff = cutoff.toFixed(2);
     cutoffagri = cutoffagri.toFixed(2);
@@ -439,6 +443,8 @@ input:disabled {
     document.getElementById("total").innerHTML = "Total = " + total;
 
     document.getElementById("cutoff").innerHTML = "Engineering cut-off mark = " + cutoff;
+
+    document.getElementById("cutoffmed").innerHTML = "Medical cut-off mark = " + cutoffmed;
 
     document.getElementById("cutoffagri").innerHTML = "Agri cut-off mark = " + cutoffagri;
     
